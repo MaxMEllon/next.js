@@ -124,6 +124,9 @@ function lazyLoadingTests() {
     expect(
       await browser.elementById('lazy-bottom').getAttribute('srcset')
     ).toBeFalsy()
+    expect(
+      await browser.elementById('lazy-bottom').getAttribute('loading')
+    ).toBe('lazy')
   })
   it('should load the third image, which is unoptimized, after scrolling further down', async () => {
     let viewportHeight = await browser.eval(`window.innerHeight`)
